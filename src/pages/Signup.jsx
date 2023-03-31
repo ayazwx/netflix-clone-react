@@ -22,6 +22,7 @@ function Signup() {
         try {
             const { email, password } = formValues;
             await createUserWithEmailAndPassword(firebaseAuth, email, password);
+            navigate("/");
         } catch (error) {
             console.log(error);
         }
@@ -44,7 +45,7 @@ function Signup() {
                             type="email"
                             placeholder="Email Adress"
                             name="email"
-                            value={form.formValues.email}
+                            value={formValues.email}
                             onChange={(e) =>
                                 setFormValues({
                                     ...formValues, [e.target.name]: e.target.value
@@ -57,7 +58,7 @@ function Signup() {
                                 type="password"
                                 placeholder="Password"
                                 name="password"
-                                value={form.formValues.password}
+                                value={formValues.password}
                                 onChange={(e) =>
                                     setFormValues({
                                         ...formValues, [e.target.name]: e.target.value
@@ -76,12 +77,7 @@ function Signup() {
     )
 };
 const Container = styled.div`
-    position: relative;value={form.formValues.email}
-    onChange={(e) =>
-        setFormValues({
-            ...formValues, [e.target.name]: e.target.value
-        })
-    }
+    position: relative;
     .content {
         position: absolute;
         top: 0;

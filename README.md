@@ -1,3 +1,11 @@
+# This Project is Not Finished Yet!!!
+
+## Finished Pages and Components:
+- Login Page
+- SignUp Page
+- Navbar
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

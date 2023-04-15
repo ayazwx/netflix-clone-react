@@ -5,6 +5,11 @@
 - SignUp Page
 - Navbar
 
+# Author
+<a href="https://ayazvefa.dev/"><img src="https://avatars.githubusercontent.com/u/92828194?v=4" width="150px " height="150px" /></a>
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|**[Vefa Ayaz](https://ayazvefa.dev)**
+| <a href="https://twitter.com/ayazwx"><img src="https://raw.githubusercontent.com/vinitshahdeo/Water-Monitoring-System/master/assets/twitter.png" width="32px" height="32px"></a> <a href="https://www.linkedin.com/in/ayazvefa/"><img src="https://raw.githubusercontent.com/vinitshahdeo/Water-Monitoring-System/master/assets/linkedin.png" width="32px" height="32px"></a> <a href="https://ayazvefa.dev"><img src="https://firebasestorage.googleapis.com/v0/b/web-johannesmilke.appspot.com/o/other%2Fsocial%2Fwebsite.png?alt=media" width="32px" height="32px"></a>
 
 # Getting Started with Create React App
 

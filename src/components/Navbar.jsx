@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
 import { FaPowerOff, FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar({ isScrolled }) {
   const links = [
@@ -13,11 +13,18 @@ export default function Navbar({ isScrolled }) {
     { name: "TV Shows", link: "/tv" },
     { name: "My List", link: "/mylist" },
   ];
+  const navigate = useNavigate();
+  useEffect(() => {
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+      if (!currentUser) navigate("/login");
+    });
+  }, []);
+
   const [showSearch, setShowSearch] = useState(false);
   const [inputHover, setInputHover] = useState(false);
   return (
     <Container>
-      <nav className={`flex ${isScrolled ? "scroled" : ""} flex`}>
+      <nav className={`flex ${isScrolled ? "scrolled" : ""} flex`}>
         <div className="left flex a-center">
           <div className="brand flex a-center j-center">
             <img src={logo} alt="logo" />
@@ -31,7 +38,8 @@ export default function Navbar({ isScrolled }) {
               );
             })}
           </ul>
-          <div className="right flex a-center">
+        </div>
+        <div className="right flex a-center">
             <div className={`search ${showSearch ? "show-search" : ""}`}>
               <button
                 onFocus={() => setShowSearch(true)}
@@ -56,7 +64,6 @@ export default function Navbar({ isScrolled }) {
               <FaPowerOff />
             </button>
           </div>
-        </div>
       </nav>
     </Container>
   );

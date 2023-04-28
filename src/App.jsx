@@ -5,6 +5,9 @@ import Login from './pages/Login';
 import Netflix from './pages/Netflix';
 import { firebaseAuth } from './utils/firebase-config';
 import Player from './pages/Player';
+import Movies from './pages/Movies'
+import NotFound from './pages/404'
+import TVShows from './pages/TVShows'
 
 export default function App() {
   return (
@@ -15,7 +18,9 @@ export default function App() {
         <Route exact path="/player" element={<Player />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<Signup />} />
-        <Route path="*" element={<h1>404 Not Found</h1>} />
+        <Route exact path="/movies" element={<Movies />} />
+        <Route exact path="/tv" element={<TVShows />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

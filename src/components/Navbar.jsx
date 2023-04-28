@@ -6,13 +6,18 @@ import { firebaseAuth } from "../utils/firebase-config";
 import { FaPowerOff, FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Navbar({ isScrolled }) {
+export default function Navbar() {
+  const [isScrolled, setisScrolled] = useState(false);
   const links = [
     { name: "Home", link: "/" },
     { name: "Movies", link: "/movies" },
     { name: "TV Shows", link: "/tv" },
     { name: "My List", link: "/mylist" },
   ];
+  window.onscroll =() => {
+    setisScrolled(window.pageYOffset===0?false:true);
+    return () => window.onscroll=null
+}
   const navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (currentUser) => {

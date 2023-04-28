@@ -8,20 +8,15 @@ import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getGenres, fetchMovies } from '../store'
+import Slider from '../components/Slider'
 
 export default function Netflix() {
-    const [isScrolled, setisScrolled] = useState(false);
     const genresLoaded = useSelector(state => state.netflix.genresLoaded)
     // const genres = useSelector((state) => state.netflix.genres)
     const movies = useSelector(state => state.netflix.movies)
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
-
-    window.onscroll =() => {
-        setisScrolled(window.pageYOffset===0?false:true);
-        return () => window.onscroll=null
-    }
 
     useEffect(() => {
         dispatch(getGenres())
@@ -35,7 +30,7 @@ export default function Netflix() {
     }, [genresLoaded])
   return (
     <Container>
-        <Navbar isScrolled={isScrolled} />
+        <Navbar />
         <div className="hero">
             <img src={BackgroundImage} alt="background" className='background-image'/>
             <div className="container">
@@ -54,6 +49,7 @@ export default function Netflix() {
                 </div>
             </div>
         </div>
+        <Slider movies={movies}/>
     </Container>
   )
 }

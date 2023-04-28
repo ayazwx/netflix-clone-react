@@ -3,17 +3,21 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Video from "../assets/React.mp4";
 import { BsArrowLeft } from "react-icons/bs";
+import YTVideo from "./YTVideo";
 
 const Player = (props) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <Container>
       <div className="player">
         <div className="back">
-            <BsArrowLeft onClick={() => navigate(-1)} />
+          <BsArrowLeft onClick={() => navigate(-1)} />
         </div>
-        <video src={Video} autoPlay loop controls muted></video>
-      </div>
+        {/* <video src={`https://www.youtube.com/embed/HyWYpM_S-2c`} autoPlay loop controls muted></video> */}
+        {/* <iframe src="https://www.youtube.com/embed/HyWYpM_S-2c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
+        
+          <YTVideo />
+        </div>
     </Container>
   )
 };
